@@ -12,7 +12,7 @@ const App = () => {
     <SafeAreaView style={globalStyle.container}>
       <FlatList
         data={DATA}
-        renderItem={({item}) => <Item title={item.title}/>}
+        renderItem={({item}) => <Item {...item}/>}
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
