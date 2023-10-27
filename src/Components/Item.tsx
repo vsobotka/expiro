@@ -14,7 +14,6 @@ export function Item({ title, expirationTimestamp }: ItemProps) {
     <View style={globalStyle.item}>
       <Badge daysLeft={daysLeft} />
       <Text style={globalStyle.title}>{title}</Text>
-      <Text>{new Date(expirationTimestamp).toISOString()}</Text>
     </View>
   );
 }
