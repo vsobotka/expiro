@@ -24,6 +24,12 @@ export const globalStyle = StyleSheet.create({
     fontSize: 18,
     alignSelf: "flex-start",
   },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
 });
 
 export const colors = {
