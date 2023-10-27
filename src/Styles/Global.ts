@@ -14,7 +14,22 @@ export const globalStyle = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowOffset: {width: 0, height: 0},
   },
+  badge: {
+    backgroundColor: 'orange',
+    padding: 5,
+    borderRadius: 10,
+    alignSelf: 'flex-start',
+  },
   title: {
-    fontSize: 32,
+    fontSize: 18,
+    alignSelf: 'flex-start',
   },
 });
+
+export const colors = {
+  badge: {
+    expired: 'red',
+    soon: 'orange',
+    safe: 'green',
+  }
+}
