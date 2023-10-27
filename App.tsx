@@ -1,20 +1,16 @@
-import { SafeAreaView, FlatList } from "react-native";
-import { globalStyle } from "./src/Styles/Global";
 import React from "react";
-import { Item } from "./src/Components/Item";
-import { DATA } from "./src/Storage/Data";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { List } from "./src/Pages/List";
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <SafeAreaView style={globalStyle.container}>
-        <FlatList
-          data={DATA}
-          renderItem={({ item }) => <Item {...item} />}
-          keyExtractor={(item) => item.id}
-        />
-      </SafeAreaView>
+      <Stack.Navigator>
+        <Stack.Screen name="List" component={List} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

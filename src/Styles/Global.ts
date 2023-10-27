@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 export const globalStyle = StyleSheet.create({
   container: {
@@ -6,30 +6,30 @@ export const globalStyle = StyleSheet.create({
     marginTop: 0,
   },
   item: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
     borderRadius: 10,
-    shadowOpacity: 0.2,
-    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 0 },
   },
   badge: {
-    backgroundColor: 'orange',
+    backgroundColor: "orange",
     padding: 5,
     borderRadius: 10,
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
   },
   title: {
     fontSize: 18,
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
   },
 });
 
 export const colors = {
   badge: {
-    expired: 'red',
-    soon: 'orange',
-    safe: 'green',
-  }
-}
+    expired: "red",
+    soon: "orange",
+    safe: "green",
+  },
+};
