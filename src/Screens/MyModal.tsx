@@ -3,15 +3,17 @@ import { Button, TextInput, View } from "react-native";
 import React, { useContext, useState } from "react";
 import { RootStackParamList } from "../../App";
 import { globalStyle } from "../Styles/Global";
-import RNDateTimePicker from "@react-native-community/datetimepicker";
 import { Context } from "../Context";
+import { DatePicker } from "../Components/DatePicker";
 
 type Props = NativeStackScreenProps<RootStackParamList, "MyModal">;
 
 export function MyModal({ navigation }: Props) {
   const { addToList } = useContext(Context);
   const [title, setTitle] = useState("");
-  const [expirationTimestamp, setExpirationTimestamp] = useState(0);
+  const [expirationTimestamp, setExpirationTimestamp] = useState(
+    new Date().getTime(),
+  );
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -20,8 +22,8 @@ export function MyModal({ navigation }: Props) {
         value={title}
         onChangeText={(newText) => setTitle(newText)}
       />
-      <RNDateTimePicker
-        value={new Date()}
+      <DatePicker
+        value={new Date(expirationTimestamp)}
         onChange={(_, newDate) =>
           setExpirationTimestamp(newDate?.getTime() ?? 0)
         }
