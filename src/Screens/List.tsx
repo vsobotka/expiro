@@ -14,7 +14,7 @@ export const List = ({ navigation }: Props) => {
   return (
     <SafeAreaView style={globalStyle.container}>
       <FlatList
-        data={list.sort(
+        data={(list || []).sort(
           (a, b) => a.expirationTimestamp - b.expirationTimestamp,
         )}
         renderItem={({ item }) => <Item {...item} />}
