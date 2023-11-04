@@ -2,12 +2,12 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { List } from "./src/Screens/List";
-import { MyModal } from "./src/Screens/MyModal";
+import { ItemDetail } from "./src/Screens/ItemDetail";
 import { StateProvider } from "./src/Context";
 
 export type RootStackParamList = {
   List: undefined;
-  MyModal: undefined;
+  Detail: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -21,7 +21,7 @@ const App = () => {
             <Stack.Screen name="List" component={List} />
           </Stack.Group>
           <Stack.Group screenOptions={{ presentation: "modal" }}>
-            <Stack.Screen name="MyModal" component={MyModal} />
+            <Stack.Screen name="Detail" component={ItemDetail} />
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>

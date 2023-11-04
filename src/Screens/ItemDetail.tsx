@@ -6,9 +6,9 @@ import { globalStyle } from "../Styles/Global";
 import { Context } from "../Context";
 import { DatePicker } from "../Components/DatePicker";
 
-type Props = NativeStackScreenProps<RootStackParamList, "MyModal">;
+type Props = NativeStackScreenProps<RootStackParamList, "Detail">;
 
-export function MyModal({ navigation }: Props) {
+export function ItemDetail({ navigation }: Props) {
   const { addToList } = useContext(Context);
   const [title, setTitle] = useState("");
   const [expirationTimestamp, setExpirationTimestamp] = useState(
