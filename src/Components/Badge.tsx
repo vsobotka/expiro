@@ -1,14 +1,14 @@
 import { Text, View } from "react-native";
-import { colors } from "../Globals/Constants";
+import { colors, thresholds } from "../Globals/Constants";
 import { globalStyle } from "../Globals/Styles";
 
 type BadgeProps = { daysLeft: number };
 
 export function Badge({ daysLeft }: BadgeProps) {
   const color =
-    daysLeft < 0
+    daysLeft < thresholds.expired
       ? colors.badge.expired
-      : daysLeft < 20
+      : daysLeft < thresholds.soon
       ? colors.badge.soon
       : colors.badge.safe;
 

@@ -3,6 +3,7 @@ import { Badge } from "./Badge";
 import { ItemType } from "../Storage/Data";
 import * as Progress from "react-native-progress";
 import { globalStyle } from "../Globals/Styles";
+import { thresholds } from "../Globals/Constants";
 
 type ItemProps = { data: ItemType; onClick: () => void };
 
@@ -17,8 +18,8 @@ export function Item({ data, onClick }: ItemProps) {
       <View style={globalStyle.item}>
         <Badge daysLeft={daysLeft} />
         <Text style={globalStyle.title}>{data.title}</Text>
-        {daysLeft >= 0 && daysLeft <= 20 && (
-          <Progress.Bar progress={daysLeft / 20} width={200} />
+        {daysLeft >= thresholds.expired && daysLeft <= thresholds.soon && (
+          <Progress.Bar progress={daysLeft / thresholds.soon} width={200} />
         )}
       </View>
     </TouchableOpacity>
