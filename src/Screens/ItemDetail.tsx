@@ -5,24 +5,24 @@ import { RootStackParamList } from "../../App";
 import { globalStyle } from "../Styles/Global";
 import { Context } from "../Context";
 import { DatePicker } from "../Components/DatePicker";
+import { ItemType } from "../Storage/Data";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Detail">;
 
 export function ItemDetail({ navigation, route }: Props) {
   const { addToList, list } = useContext(Context);
 
-  const [id, setId] = useState(route.params.id || new Date().getTime().toString());
-  const [title, setTitle] = useState("");
-  const [expirationTimestamp, setExpirationTimestamp] = useState(
-    new Date().getTime(),
-  );
+  const [item, setItem] = useState({
+    id: new Date().getTime().toString(),
+    title: "",
+    expirationTimestamp: new Date().getTime(),
+  } as ItemType);
 
   useEffect(() => {
     if (route.params.id) {
       const item = list?.find((item) => item.id === route.params.id);
       if (item) {
-        setTitle(item.title);
-        setExpirationTimestamp(item.expirationTimestamp);
+        setItem(item)
       }
     }
   }, []);
@@ -31,22 +31,18 @@ export function ItemDetail({ navigation, route }: Props) {
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <TextInput
         style={globalStyle.input}
-        value={title}
-        onChangeText={(newText) => setTitle(newText)}
+        value={item.title}
+        onChangeText={(newText) => setItem({...item, title: newText})}
       />
       <DatePicker
-        value={new Date(expirationTimestamp)}
+        value={new Date(item.expirationTimestamp)}
         onChange={(_, newDate) =>
-          setExpirationTimestamp(newDate?.getTime() ?? 0)
+          setItem({...item, expirationTimestamp: newDate?.getTime() ?? 0})
         }
       />
       <Button
         onPress={() => {
-          addToList({
-            id: id,
-            title,
-            expirationTimestamp,
-          });
+          addToList(item);
           navigation.goBack();
         }}
         title="Save"
