@@ -6,7 +6,7 @@ import { Context } from "../Context";
 import { DatePicker } from "../Components/DatePicker";
 import { ItemType } from "../Storage/Data";
 import { globalStyle } from "../Globals/Styles";
-import { colors } from "../Globals/Constants";
+import { colorTheme } from "../Globals/Constants";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Detail">;
 
@@ -59,7 +59,7 @@ export function ItemDetail({ navigation, route }: Props) {
       />
       {isEdit && (
         <Button
-          color={colors.button.danger}
+          color={colorTheme.button.danger}
           onPress={() => {
             removeFromList(item);
             navigation.goBack();

@@ -15,7 +15,6 @@ export const globalStyle = StyleSheet.create({
     shadowOffset: { width: 0, height: 0 },
   },
   badge: {
-    backgroundColor: "orange",
     padding: 5,
     borderRadius: 10,
     alignSelf: "flex-start",
