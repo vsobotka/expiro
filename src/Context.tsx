@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useEffect, useState } from "react";
-import { DATA } from "./Storage/Data";
+import { DATA, ItemType } from "./Storage/Data";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type Item = {
@@ -16,7 +16,7 @@ export const Context = React.createContext({
 });
 
 export function StateProvider({ children }: PropsWithChildren) {
-  const [list, setList] = useState(null as typeof DATA | null);
+  const [list, setList] = useState(null as ItemType[] | null);
 
   useEffect(() => {
     if (list === null) return;
@@ -35,8 +35,15 @@ export function StateProvider({ children }: PropsWithChildren) {
     });
   }, []);
 
-  function addToList(item: (typeof DATA)[0]) {
-    setList((list) => [...(list || []), item]);
+  function addToList(item: ItemType) {
+    const itemIndex = list?.findIndex((i) => i.id === item.id);
+    const newList = [...(list || [])];
+    if (itemIndex !== undefined && itemIndex !== -1) {
+      newList[itemIndex] = item;
+    } else {
+      newList.push(item);
+    }
+    setList(newList);
   }
 
   return (

@@ -1,19 +1,22 @@
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { globalStyle } from "../Styles/Global";
 import { Badge } from "./Badge";
+import { ItemType } from "../Storage/Data";
 
-type ItemProps = { title: string; expirationTimestamp: number };
+type ItemProps = { data: ItemType, onClick: () => void };
 
-export function Item({ title, expirationTimestamp }: ItemProps) {
+export function Item({ data, onClick }: ItemProps) {
   const today = new Date();
   const daysLeft = Math.ceil(
-    (expirationTimestamp - today.getTime()) / (1000 * 3600 * 24),
+    (data.expirationTimestamp - today.getTime()) / (1000 * 3600 * 24),
   );
 
   return (
-    <View style={globalStyle.item}>
-      <Badge daysLeft={daysLeft} />
-      <Text style={globalStyle.title}>{title}</Text>
-    </View>
+    <TouchableOpacity onPress={onClick}>
+      <View style={globalStyle.item}>
+        <Badge daysLeft={daysLeft} />
+        <Text style={globalStyle.title}>{data.title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }

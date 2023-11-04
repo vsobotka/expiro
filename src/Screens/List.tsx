@@ -17,11 +17,11 @@ export const List = ({ navigation }: Props) => {
         data={(list || []).sort(
           (a, b) => a.expirationTimestamp - b.expirationTimestamp,
         )}
-        renderItem={({ item }) => <Item {...item} />}
+        renderItem={({ item }) => <Item onClick={() => navigation.navigate("Detail", {id: item.id})} data={item} />}
         keyExtractor={(item) => item.id}
       />
       <Button
-        onPress={() => navigation.navigate("MyModal")}
+        onPress={() => navigation.navigate("Detail", {id: undefined })}
         title="Open Modal"
       />
     </SafeAreaView>

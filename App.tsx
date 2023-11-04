@@ -7,7 +7,7 @@ import { StateProvider } from "./src/Context";
 
 export type RootStackParamList = {
   List: undefined;
-  Detail: undefined;
+  Detail: { id: string | undefined };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

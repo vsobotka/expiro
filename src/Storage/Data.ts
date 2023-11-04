@@ -1,4 +1,10 @@
-export const DATA = [
+export type ItemType = {
+  id: string;
+  title: string;
+  expirationTimestamp: number;
+}
+
+export const DATA: ItemType[] = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     title: 'First Item',
