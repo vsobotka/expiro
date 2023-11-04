@@ -25,8 +25,15 @@ export const globalStyle = StyleSheet.create({
     alignSelf: "flex-start",
   },
   input: {
-    width: 200,
+    width: 300,
     height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  area: {
+    width: 300,
+    height: 200,
     margin: 12,
     borderWidth: 1,
     padding: 10,

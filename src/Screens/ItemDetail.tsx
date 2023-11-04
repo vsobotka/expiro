@@ -17,6 +17,7 @@ export function ItemDetail({ navigation, route }: Props) {
     id: new Date().getTime().toString(),
     title: "",
     expirationTimestamp: new Date().getTime(),
+    description: "",
   } as ItemType);
 
   useEffect(() => {
@@ -42,6 +43,12 @@ export function ItemDetail({ navigation, route }: Props) {
         onChange={(_, newDate) =>
           setItem({ ...item, expirationTimestamp: newDate?.getTime() ?? 0 })
         }
+      />
+      <TextInput
+        multiline={true}
+        style={globalStyle.area}
+        value={item.description}
+        onChangeText={(newText) => setItem({ ...item, description: newText })}
       />
       <Button
         onPress={() => {

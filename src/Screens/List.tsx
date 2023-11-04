@@ -27,7 +27,7 @@ export const List = ({ navigation }: Props) => {
       />
       <Button
         onPress={() => navigation.navigate("Detail", { id: undefined })}
-        title="Open Modal"
+        title="Add item"
       />
     </SafeAreaView>
   );

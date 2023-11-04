@@ -2,18 +2,12 @@ import React, { PropsWithChildren, useEffect, useState } from "react";
 import { DATA, ItemType } from "./Storage/Data";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-type Item = {
-  id: string;
-  title: string;
-  expirationTimestamp: number;
-};
-
-type ListType = Item[];
+type ListType = ItemType[];
 
 export const Context = React.createContext({
   list: [] as ListType | null,
-  addToList: (_: Item) => {},
-  removeFromList: (_: Item) => {},
+  addToList: (_: ItemType) => {},
+  removeFromList: (_: ItemType) => {},
 });
 
 export function StateProvider({ children }: PropsWithChildren) {
@@ -57,6 +51,8 @@ export function StateProvider({ children }: PropsWithChildren) {
   }
 
   return (
-    <Context.Provider value={{ list, addToList, removeFromList }}>{children}</Context.Provider>
+    <Context.Provider value={{ list, addToList, removeFromList }}>
+      {children}
+    </Context.Provider>
   );
 }
