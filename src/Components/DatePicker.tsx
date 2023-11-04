@@ -4,7 +4,7 @@ import RNDateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
 import React from "react";
-import { globalStyle } from "../Styles/Global";
+import { globalStyle } from "../Globals/Styles";
 
 type Props = {
   value: Date;

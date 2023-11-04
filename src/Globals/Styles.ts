@@ -32,14 +32,3 @@ export const globalStyle = StyleSheet.create({
     padding: 10,
   },
 });
-
-export const colors = {
-  badge: {
-    expired: "red",
-    soon: "orange",
-    safe: "green",
-  },
-  button: {
-    danger: "red",
-  },
-};

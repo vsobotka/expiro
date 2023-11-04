@@ -1,8 +1,8 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import { globalStyle } from "../Styles/Global";
 import { Badge } from "./Badge";
 import { ItemType } from "../Storage/Data";
 import * as Progress from "react-native-progress";
+import { globalStyle } from "../Globals/Styles";
 
 type ItemProps = { data: ItemType; onClick: () => void };
 

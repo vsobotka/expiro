@@ -2,10 +2,11 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Button, TextInput, View } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { RootStackParamList } from "../../App";
-import { colors, globalStyle } from "../Styles/Global";
 import { Context } from "../Context";
 import { DatePicker } from "../Components/DatePicker";
 import { ItemType } from "../Storage/Data";
+import { globalStyle } from "../Globals/Styles";
+import { colors } from "../Globals/Constants";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Detail">;
 
