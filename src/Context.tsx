@@ -13,6 +13,7 @@ type ListType = Item[];
 export const Context = React.createContext({
   list: [] as ListType | null,
   addToList: (_: Item) => {},
+  removeFromList: (_: Item) => {},
 });
 
 export function StateProvider({ children }: PropsWithChildren) {
@@ -46,7 +47,16 @@ export function StateProvider({ children }: PropsWithChildren) {
     setList(newList);
   }
 
+  function removeFromList(item: ItemType) {
+    const itemIndex = list?.findIndex((i) => i.id === item.id);
+    const newList = [...(list || [])];
+    if (itemIndex !== undefined && itemIndex !== -1) {
+      newList.splice(itemIndex, 1);
+    }
+    setList(newList);
+  }
+
   return (
-    <Context.Provider value={{ list, addToList }}>{children}</Context.Provider>
+    <Context.Provider value={{ list, addToList, removeFromList }}>{children}</Context.Provider>
   );
 }

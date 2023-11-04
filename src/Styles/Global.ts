@@ -39,4 +39,7 @@ export const colors = {
     soon: "orange",
     safe: "green",
   },
+  button: {
+    danger: "red",
+  },
 };
